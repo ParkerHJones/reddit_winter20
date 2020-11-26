@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+   root 'subs#index'
+  # get '/subs', to: 'subs#index'
+  # post '/subs', to: 'subs#create'
+
+  resources :subs do 
+    resources :topics
+  end 
+
+      resources topics: do
+        resources :comments 
+    end 
+
+    # :id
+    # params [:id]
+
+    /subs/1/topics/3
+    params[:sub_id] = 1
+    params [:id] = 3
+
+
 end
